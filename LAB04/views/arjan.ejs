@@ -1,27 +1,163 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <title>My Favorite Singer</title>
-    </head>
-    <body>
-        <%- include('header') %>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <title>Arjan Dhillon</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      color: #343a40;
+      margin-top: 20px;
+    }
+
+    .jumbotron {
+      background-color: #835b06;
+      color: #fff;
+      padding: 2rem 2rem;
+      margin-bottom: 30px;
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .custom-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .custom-col {
+      flex-basis: 48%;
+      /* Adjust the width as needed */
+      margin-bottom: 20px;
+    }
+
+    .song-card {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .song-card:hover {
+      transform: scale(1.05);
+    }
+
+    .song-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .song-title {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('header') %>
+
+    <div class="jumbotron text-center">
+      <img src="https://i1.sndcdn.com/artworks-B8XMKCrkCBKlqOoA-e46nIw-t500x500.jpg" alt="Arjan Dhillon" class="img-fluid rounded-circle"
+        style="width: 200px" />
+      <h1 class="display-4">Arjan Dhillon</h1>
+      <p class="lead">
+        "Unlock the Soundtrack of Emotions – Arjan Dhillon's Music, Where Every Note Resonates!"      </p>
+    </div>
+
+    <div class="container">
+      <h2>About Arjan Dhillon</h2>
+      <p>
+        Arjan Dhillon, a talented Punjabi singer and lyricist, has made significant contributions to the vibrant and ever-evolving Punjabi music industry. Born and raised in Mansa, Punjab, Dhillon's journey in the world of music began with a passion for writing. His lyrical prowess quickly caught the attention of music producers, paving the way for his entry into the Punjabi music scene.
+      </p>
+
+      <p>
+        Dhillon is widely recognized for his ability to craft meaningful and relatable lyrics that resonate with audiences of all ages. His poetic expressions often touch on themes of love, heartbreak, and the complexities of life, showcasing a deep understanding of human emotions. This emotional depth has contributed to his success, making him a sought-after lyricist in the industry.
+      </p>
+
+      <p>
+        Beyond his lyrical talent, Arjan Dhillon has also showcased his vocal abilities as a singer. His soulful and melodic voice adds an extra layer of emotion to his songs, creating a unique and memorable listening experience. His versatility as both a lyricist and a singer has allowed him to collaborate with various artists, contributing to the diversity of his musical portfolio.
+      </p>
+
+      <p>
+        Arjan Dhillon's impact on the Punjabi music scene extends beyond his individual success. He has played a role in shaping the contemporary sound of Punjabi music, influencing the next generation of artists. His commitment to artistic expression and authenticity has garnered him a dedicated fan base, and his work continues to resonate with listeners worldwide.
+      </p>
+
+      <p>
+        In addition to his musical pursuits, Dhillon remains connected with his roots, drawing inspiration from the rich cultural heritage of Punjab. This connection is evident in his work, where he often incorporates traditional elements into his music, creating a fusion of modern and classic sounds. This cultural authenticity has further endeared him to fans who appreciate the genuine representation of Punjabi culture in his art.
+      </p>
+
+      <p>
+        As Arjan Dhillon continues to evolve as an artist, his impact on the Punjabi music industry remains profound. With a combination of heartfelt lyrics, soulful vocals, and a commitment to cultural authenticity, he stands as a testament to the enduring power of music to connect people across borders and cultures.
+      </p>
+
+      <p>
+        In conclusion, Arjan Dhillon stands as a luminary in the Punjabi music realm, weaving a tapestry of emotions through his poetic verses and soul-stirring melodies. His journey from a small town in Punjab to the global stage reflects not only his personal growth but also the universal appeal of his art. With each song, he invites listeners into a world where emotions are raw, relatable, and undeniably human. As Arjan Dhillon continues to craft musical narratives that resonate deeply, his impact on the industry persists, leaving an indelible mark on the hearts of those who find solace, joy, and connection in the beauty of his compositions. The future holds promise for this maestro, and as his musical odyssey unfolds, we can only anticipate more evocative tales and timeless melodies from the pen and voice of Arjan Dhillon.
+      </p>
 
 
-
-
-
-
-        
-        <footer class="bg-dark text-white text-center py-3">
-            <div class="container">
-                &copy; 2023 My Favorite Singers
+      <div class="container">
+        <h2 class="text-center mt-5">Top Hits</h2>
+        <div class="custom-row">
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 1 - Flat</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/zs5G7STGe2Y?si=RKJ617iVMuodh-h6&amp;start=9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
-        </footer>
-            
-                <!-- Bootstrap JavaScript and jQuery -->
-                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    
+          </div>
+
+
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 2 - Drunk Arjan</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/jwHQSNdbmcg?si=r_n-AW_kfd1xaoka&amp;start=6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 3 - Vatt da raula</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/lpJWLouHwZk?si=Rn36Gpej-MsdQnXU&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 4 - Raah warga</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Fmnn-PkppVc?si=EZgL_1IZ5FYox-tT&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+       <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            &copy; 2023 My Favorite Singers
+        </div>
+    </footer>
+        
+            <!-- Bootstrap JavaScript and jQuery -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

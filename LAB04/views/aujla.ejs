@@ -1,27 +1,188 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <title>My Favorite Singer</title>
-    </head>
-    <body>
-        <%- include('header') %>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <title>Karan Aujla</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #343a40;
+            margin-top: 20px;
+        }
+
+        .jumbotron {
+            background-color: #835b06;
+            color: #fff;
+            padding: 2rem 2rem;
+            margin-bottom: 30px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .custom-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .custom-col {
+            flex-basis: 48%;
+            /* Adjust the width as needed */
+            margin-bottom: 20px;
+        }
+
+        .song-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .song-card:hover {
+            transform: scale(1.05);
+        }
+
+        .song-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .song-title {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('header') %>
+
+        <div class="jumbotron text-center">
+            <img src="https://wikibio.in/wp-content/uploads/2023/03/Karan-Aujla.jpg" alt="Karan Aujla" class="img-fluid rounded-circle"
+                style="width: 200px" />
+            <h1 class="display-4">Karan Aujla</h1>
+            <p class="lead">
+                "Aujla Vibes, Unmatched and Alive."
+            </p>
+        </div>
+
+        <div class="container">
+            <h2>About Karan Aujla</h2>
+            <p>
+
+                Karan Aujla, a prominent figure in the Punjabi music industry, has carved a niche for himself with his
+                distinctive style and powerful lyrics. Born on January 18, 1997, in Ghurala, Punjab, India, Aujla rose
+                to fame as a lyricist before transitioning into a successful career as a singer and music composer. His
+                journey in the music industry began with writing meaningful and relatable lyrics that resonated with the
+                youth, addressing social issues and personal experiences. </p>
+
+            <p>
+                Aujla's lyrical prowess is often celebrated for its raw and authentic depiction of life, capturing the
+                essence of the Punjabi culture. His verses are known for blending traditional Punjabi storytelling with
+                a modern twist, creating a unique and refreshing sound that appeals to a diverse audience. This ability
+                to bridge the gap between tradition and contemporary trends has solidified Aujla's position as a
+                trailblazer in the Punjabi music scene.</p>
+
+            <p>
+                Beyond his skillful penmanship, Karan Aujla's distinct voice and dynamic musical compositions have
+                propelled him to the forefront of the Punjabi music industry. His collaborations with other talented
+                artists have resulted in chart-topping hits, showcasing his versatility as a musician. Aujla's ability
+                to seamlessly switch between soulful melodies and energetic beats has made him a favorite among music
+                enthusiasts.
+            </p>
+
+            <p>
+                In addition to his success in the music industry, Karan Aujla has also ventured into acting. His
+                charismatic personality and on-screen presence have further expanded his fan base, solidifying his
+                status as a multifaceted entertainer. Aujla's contributions to both the music and entertainment realms
+                have earned him widespread acclaim and numerous accolades, reflecting the impact of his work on the
+                cultural landscape.
+            </p>
+
+            <p>
+                As an artist deeply connected to his roots, Karan Aujla continues to evolve and push the boundaries of
+                Punjabi music. With a commitment to authenticity and a keen understanding of his audience, he remains a
+                driving force in shaping the sound and narrative of contemporary Punjabi music, leaving an indelible
+                mark on the industry for years to come.
+            </p>
+
+            <p>
+                Karan Aujla's music is a vibrant tapestry of emotions, seamlessly woven together with a rich blend of
+                Punjabi folk and contemporary beats. His catalog boasts an array of chart-topping hits that have become
+                anthems for a generation. Tracks like "Don't Look," with its infectious rhythm and Aujla's charismatic
+                delivery, have become synonymous with the infectious energy of Punjabi pop. "Hint" showcases his ability
+                to craft catchy tunes with clever wordplay, while "Sheikh" highlights his versatility with its fusion of
+                Punjabi and Arabic influences. Aujla's collaboration with Sidhu Moosewala in "Bad Fellow" further
+                solidifies his reputation as a trendsetter in the Punjabi music scene. His music not only resonates with
+                the youth but also transcends cultural boundaries, earning him a dedicated global fan base. Karan
+                Aujla's ability to consistently produce hits that blend traditional Punjabi elements with a modern twist
+                underscores his significance as a musical trailblazer.
+            </p>
 
 
 
-
-
-
-        
-        <footer class="bg-dark text-white text-center py-3">
             <div class="container">
-                &copy; 2023 My Favorite Singers
+                <h2 class="text-center mt-5">Top Hits</h2>
+                <div class="custom-row">
+                    <div class="custom-col text-center">
+                        <div class="song-card">
+                            <p class="song-title">Song 1 - You</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/8ELaOmEHB-M?si=aJEpLNXPnT0J_VKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+
+                    <div class="custom-col text-center">
+                        <div class="song-card">
+                            <p class="song-title">Song 2 - Players</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CeFQO9MQNqs?si=FrheTS6CZe69hTsz&amp;start=89" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+
+                    <div class="custom-col text-center">
+                        <div class="song-card">
+                            <p class="song-title">Song 3 - Fallin Apart</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/VbOgch_i3qg?si=E6op-GfAtCzphSnU&amp;start=8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+
+                    <div class="custom-col text-center">
+                        <div class="song-card">
+                            <p class="song-title">Song 4 - Oouuuu</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/sSHqlGy9dMA?si=KHvxIuVrtPuz5iM9&amp;start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
-        </footer>
-            
-                <!-- Bootstrap JavaScript and jQuery -->
-                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    
+
+             <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            &copy; 2023 My Favorite Singers
+        </div>
+    </footer>
+        
+            <!-- Bootstrap JavaScript and jQuery -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

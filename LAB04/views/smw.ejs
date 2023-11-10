@@ -1,23 +1,208 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <title>My Favorite Singer</title>
-  </head>
-  <body>
-    <%- include('header') %>
+<html lang="en">
 
-    <h1>Sidhu Moosewala</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <title>Sidhu Moosewala</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
 
+    h1 {
+      color: #343a40;
+      margin-top: 20px;
+    }
+
+    .jumbotron {
+      background-color: #835b06;
+      color: #fff;
+      padding: 2rem 2rem;
+      margin-bottom: 30px;
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .custom-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .custom-col {
+      flex-basis: 48%;
+      /* Adjust the width as needed */
+      margin-bottom: 20px;
+    }
+
+    .song-card {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .song-card:hover {
+      transform: scale(1.05);
+    }
+
+    .song-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .song-title {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('header') %>
+
+    <div class="jumbotron text-center">
+      <img src="https://wallpapercave.com/wp/wp5164392.jpg" alt="Sidhu Moosewala" class="img-fluid rounded-circle"
+        style="width: 200px" />
+      <h1 class="display-4">Sidhu Moosewala</h1>
+      <p class="lead">
+        "Where Tradition Meets Trend, Moosewala Begins!"
+      </p>
+    </div>
+
+    <div class="container">
+      <h2>About Sidhu Moosewala</h2>
+      <p>
+        Sidhu Moosewala, whose full name is Shubhdeep Singh Sidhu, is a renowned Punjabi artist excelling as a singer,
+        lyricist, and actor hailing from Mansa, Punjab, India. Born on June 11, 1993, Moosewala gained widespread
+        recognition and popularity for his soulful and socially relevant Punjabi songs.
+      </p>
+
+      <p>
+        His journey to fame began with the release of his debut track "So High" in 2016, which quickly became a massive
+        hit. Sidhu Moosewala is known for his authentic and heartfelt lyrics that often touch upon real-life
+        experiences, social issues, and the cultural nuances of Punjab. His unique style and ability to connect with the
+        audience on a personal level have contributed to his immense success in the Punjabi music industry.
+      </p>
+
+      <p>
+        Some of his most popular songs include "Issa Jatt," "Tochan," "Dollar," and "Famous," among others. Sidhu
+        Moosewala's music resonates not only with Punjabi audiences but has also gained fans globally, making him one of
+        the most influential and celebrated figures in the contemporary Punjabi music scene.
+      </p>
+
+      <p>
+        In addition to his musical accomplishments, Moosewala has ventured into acting with Punjabi films, further
+        expanding his presence in the entertainment industry. His dedication to preserving and promoting Punjabi
+        culture, combined with his musical talent, has solidified Sidhu Moosewala's status as a cultural icon and a
+        prominent figure in the world of Punjabi music.
+      </p>
+
+      <p>
+        Sidhu Moosewala's impact extends beyond just musical success; he has become a cultural icon and a voice for the
+        youth. His songs often touch upon the challenges faced by the younger generation, addressing topics such as
+        love, heartbreak, and societal issues. Moosewala's ability to blend traditional Punjabi folk elements with
+        contemporary music has garnered him respect not only as a singer but also as a trendsetter in the industry.
+      </p>
+
+      <p>
+        Beyond the studio and stage, Sidhu Moosewala is known for his humble and grounded demeanor. Despite achieving
+        immense fame, he maintains a strong connection with his roots and continues to be relatable to his fans. His
+        authenticity and sincerity shine through not only in his lyrics but also in his interactions with the audience.
+        Moosewala's influence goes beyond entertainment; he serves as an inspiration for aspiring artists and a symbol
+        of pride for the Punjabi community worldwide.
+      </p>
+
+      <p>
+        As Sidhu Moosewala's career continues to evolve, he remains a dynamic force in the music and entertainment
+        scene, consistently delivering music that resonates with a diverse audience. With a unique blend of traditional
+        and modern elements, Moosewala has left an indelible mark on Punjabi music and culture, solidifying his place as
+        one of the most significant and influential figures in the industry.
+      </p>
+
+      <p>Sidhu Moosewala's life came to a tragic end on May 29, 2022, when he was shot dead by unidentified assailants
+        in his car in Jawaharke village of Mansa. Accompanied by his cousin Gurpreet Singh and neighbor Gurwinder Singh,
+        Moosewala was driving to his aunt's house in Barnala when two cars intercepted and blocked his black Mahindra
+        Thar SUV at around 5:30 pm. In a hail of gunfire, thirty rounds were exchanged, resulting in Moosewala's death
+        and injuring two others. Despite firing back at the attackers with his pistol, Moosewala succumbed to his
+        injuries after being rushed to the civil hospital in Mansa. The incident occurred just a day after Moosewala's
+        police security had been reduced, leaving him with only two commandos instead of four. Shockingly, Moosewala was
+        not accompanied by his security detail during the incident, traveling in his private car with two others instead
+        of his bullet-proof vehicle with commandos. The circumstances surrounding his death shed light on the challenges
+        artists face, both in terms of personal security and the unpredictability of life.</p>
+
+
+      <div class="container">
+        <h2 class="text-center mt-5">Top Hits</h2>
+        <div class="custom-row">
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 1 - So High</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/GgmFC8y8q3k?si=jHUq6R1rES2EiGjq"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 2 - Bambiha Bole</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/hpVNMjpjiJc?si=buJRLMFvneFDZf7n"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 3 - Celebrity Killer</p>
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/MyYAglA_Cdk?si=7tOBa0_PiaKc340q&amp;start=1"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+          <div class="custom-col text-center">
+            <div class="song-card">
+              <p class="song-title">Song 4 - The last Ride</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/6xoB4ZiKKn0?si=r1qRGGh8re7K86P2"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+       <!-- Footer Section -->
     <footer class="bg-dark text-white text-center py-3">
-      <div class="container">&copy; 2023 My Favorite Singers</div>
-    </footer>
+      <div class="container">
+          &copy; 2023 My Favorite Singers
+      </div>
+  </footer>
+      
+          <!-- Bootstrap JavaScript and jQuery -->
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
-    <!-- Bootstrap JavaScript and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
 </html>

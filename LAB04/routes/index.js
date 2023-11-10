@@ -1,24 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 // Import the EJS renderer
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// Route for Karan Aujla
-router.get('/', function(req, res, next) {
-  res.render('aujla', { title: 'aujla' });
+router.get('/aujla', function(req, res, next) {
+  res.render('aujla', { title: 'Karan Aujla' });
 });
 
-// Route for Sidhu Moosewala
 router.get('/smw', function(req, res, next) {
-  res.render('smw', { title: 'smw' });
+  res.render('smw', { title: 'Sidhu Moosewala' });
 });
 
-// Route for Arjan Dhillon
 router.get('/arjan', function(req, res, next) {
-  res.render('arjan', { title: 'arjan' });
+  res.render('arjan', { title: 'Arjan Dhillon' });
 });
 
 module.exports = router;
