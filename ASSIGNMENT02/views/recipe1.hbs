@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Paneer Lababdaar</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+
+    .hero {
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .recipe-card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    .recipe-card img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    .recipe-card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .recipe-card-text {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .btn-info {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-info:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container my-5">
+    <div class="row">
+      <!-- Recipe Cards -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card recipe-card">
+          <img src="https://fingersareforburning.com/wp-content/uploads/2018/08/20180717235437_IMG_0414-01-01.jpeg"
+            alt="Paneer Lababdaar" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title recipe-card-title">Paneer Lababdaar</h5>
+            <p class="card-text recipe-card-text">
+              Paneer Lababdaar, a luxurious North Indian delicacy, showcases succulent paneer cubes bathed in a velvety
+              tomato gravy. Infused with aromatic spices, this dish captivates the palate with its delightful and
+              indulgent flavor profile.
+            </p>
+            <a href="./recipe1" class="btn btn-info">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat similar structure for other recipes -->
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

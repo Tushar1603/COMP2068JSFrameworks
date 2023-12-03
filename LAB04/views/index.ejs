@@ -1,64 +1,101 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <title>My Favorite Singers</title>
+</head>
+<body>
+  <!-- Include the shared header -->
+  <%- include('header') %>
 
-        <head>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <title>My Favorite Singers</title>
-        </head>
-        <body>
-              <!-- Include the shared header -->
-        <%- include('header') %>
-        
-            <!-- Hero Section -->
-            <section class="hero bg-primary text-white text-center py-5">
-                <div class="container">
-                    <h1 class="display-4">Welcome to My Favorite Singers' Page</h1>
-                    <p class="lead">Discover and celebrate the music of my top 3 favorite artists.</p>
-                </div>
-            </section>
-        
-            <!-- Singer Cards -->
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card">
-                            <img src="https://pbs.twimg.com/ext_tw_video_thumb/1532386561563713536/pu/img/lutdJ8B4t-_yFkK7.jpg" alt="Sidhu Moosewala">
-                            <div class="card-body">
-                                <h5 class="card-title">Sidhu Moosewala</h5>
-                                <p class="card-text">Sidhu Moosewala, born Shubhdeep Singh Sidhu, is a Punjabi singer, lyricist, and actor known for his impactful contributions to the Punjabi music industry. Hailing from Mansa, Punjab, Moosewala rose to fame with his distinctive style, addressing social issues through soulful and energetic Punjabi songs, making him a prominent figure in contemporary Punjabi music. His authenticity and storytelling have garnered widespread acclaim, establishing him as a leading voice in the genre....</p>
-                                <a href="./smw" class="btn btn-primary">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card">
-                            <img src="https://i.kfs.io/album/global/133325811,0v1/fit/500x500.jpg" class="card-img-top" alt="Karan Aujla">
-                            <div class="card-body">
-                                <h5 class="card-title">Karan Aujla</h5>
-                                <p class="card-text">Karan Aujla, a renowned Punjabi singer and songwriter, has left an indelible mark on the music industry with his distinct voice and impactful lyrics. Known for his versatile style, Aujla's compositions seamlessly blend Punjabi folk with contemporary beats, captivating audiences worldwide. His magnetic stage presence and chart-topping hits have solidified his position as a leading figure in the Punjabi music scene....</p>
-                                <a href="./aujla" class="btn btn-primary">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card">
-                            <img src="https://i.pinimg.com/564x/bf/e4/2d/bfe42de1c53a2ef95276969e366867a8.jpg" class="card-img-top" alt="arjan Dhillon">
-                            <div class="card-body">
-                                <h5 class="card-title">Arjan Dhillon</h5>
-                                <p class="card-text">Arjan Dhillon is a Punjabi singer and lyricist known for his contributions to the Indian music industry. With a unique style and soulful voice, he has gained popularity for his hit Punjabi songs, captivating audiences with his artistic expressions and storytelling through music. Arjan Dhillon continues to be a rising star in the vibrant Punjabi music scene.......</p>
-                                <a href="./arjan" class="btn btn-primary">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <section class="hero bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Welcome to My Favorite Singers' Page</h1>
+      <p class="lead">
+        Discover and celebrate the music of my top 3 favorite artists.
+      </p>
+    </div>
+  </section>
 
-                <!-- Footer Section -->
-    <footer class="bg-dark text-white text-center py-3">
-        <div class="container">
-            &copy; 2023 My Favorite Singers
+  <!-- Singer Cards -->
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <img
+            src="https://pbs.twimg.com/ext_tw_video_thumb/1532386561563713536/pu/img/lutdJ8B4t-_yFkK7.jpg"
+            alt="Sidhu Moosewala"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Sidhu Moosewala</h5>
+            <p class="card-text">
+              Sidhu Moosewala, born Shubhdeep Singh Sidhu, is a Punjabi singer,
+              lyricist, and actor known for his impactful contributions to the
+              Punjabi music industry. Hailing from Mansa, Punjab, Moosewala rose
+              to fame with his distinctive style, addressing social issues
+              through soulful and energetic Punjabi songs, making him a
+              prominent figure in contemporary Punjabi music. His authenticity
+              and storytelling have garnered widespread acclaim, establishing
+              him as a leading voice in the genre....
+            </p>
+            <a href="./smw" class="btn btn-primary">Learn More</a>
+          </div>
         </div>
-    </footer>
-        
-            <!-- Bootstrap JavaScript and jQuery -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-        
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <img
+            src="https://i.kfs.io/album/global/133325811,0v1/fit/500x500.jpg"
+            class="card-img-top"
+            alt="Karan Aujla"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Karan Aujla</h5>
+            <p class="card-text">
+              Karan Aujla, a renowned Punjabi singer and songwriter, has left an
+              indelible mark on the music industry with his distinct voice and
+              impactful lyrics. Known for his versatile style, Aujla's
+              compositions seamlessly blend Punjabi folk with contemporary
+              beats, captivating audiences worldwide. His magnetic stage
+              presence and chart-topping hits have solidified his position as a
+              leading figure in the Punjabi music scene....
+            </p>
+            <a href="./aujla" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/564x/bf/e4/2d/bfe42de1c53a2ef95276969e366867a8.jpg"
+            class="card-img-top"
+            alt="arjan Dhillon"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Arjan Dhillon</h5>
+            <p class="card-text">
+              Arjan Dhillon is a Punjabi singer and lyricist known for his
+              contributions to the Indian music industry. With a unique style
+              and soulful voice, he has gained popularity for his hit Punjabi
+              songs, captivating audiences with his artistic expressions and
+              storytelling through music. Arjan Dhillon continues to be a rising
+              star in the vibrant Punjabi music scene.......
+            </p>
+            <a href="./arjan" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">&copy; 2023 My Favorite Singers</div>
+  </footer>
+
+  <!-- Bootstrap JavaScript and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
