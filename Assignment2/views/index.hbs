@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .background-section {
+            background-color: #f0f0f0; 
+            padding: 20px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #54B4D3;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #54B4D3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #54B4D3;
+        }
+
+        #displayData {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #recipeImage {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #displayCard .card-body {
+            padding: 15px;
+        }
+
+        #displayCard p {
+            margin-bottom: 8px;
+        }
+
+        .error-message {
+            color: rgb(225, 71, 71);
+        }
+
+        .delete-button,
+        .update-button {
+            background-color: #54B4D3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        .delete-button:hover{
+            background-color: #c82333
+        }
+        .update-button:hover {
+            background-color: #2cb85f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-section">
+        <div class="container">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Recipe Form</h4>
+                </div>
+
+                {{!-- this is the form to take the data from the user --}}
+                <div class="card-body">
+                    <form id="recipeForm">
+                        <div class="form-group">
+                            <label for="recipeName">Recipe Name:</label>
+                            <input type="text" class="form-control" id="recipeName" name="recipeName" required>
+                            <small class="error-message" id="errorRecipeName"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imageLink">Image Link:</label>
+                            <input type="text" class="form-control" id="imageLink" name="imageLink" required>
+                            <small class="error-message" id="errorImageLink"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeSteps">Steps Required:</label>
+                            <textarea class="form-control" id="recipeSteps" name="recipeSteps" rows="4" required></textarea>
+                            <small class="error-message" id="errorRecipeSteps"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeOverview">Recipe Overview:</label>
+                            <textarea class="form-control" id="recipeOverview" name="recipeOverview" rows="4" required></textarea>
+                            <small class="error-message" id="errorRecipeOverview"></small>
+                        </div>
+
+                        <div class="text-center">
+                            {{!-- submitForm is a js item that is further used in this code --}}
+                            <button type="button" class="btn btn-info" onclick="submitForm()">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- this will display the submitted data on screen -->
+            <div id="displayData"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // this will load the submitted data
+        var submittedData = JSON.parse(localStorage.getItem('submittedData')) || [];
+        var selectedIndex = -1;
+
+        // saving data to local storage
+        function saveToLocalStorage() {
+            localStorage.setItem('submittedData', JSON.stringify(submittedData));
+        }
+
+        function submitForm() {
+            var formData = {
+                recipeName: document.getElementById('recipeName').value,
+                imageLink: document.getElementById('imageLink').value,
+                recipeSteps: document.getElementById('recipeSteps').value,
+                recipeOverview: document.getElementById('recipeOverview').value
+            };
+
+            //this will force the user to fill all the forms before moving on and further submitting the form without any data
+            if (!formData.recipeName) {
+                document.getElementById('errorRecipeName').innerText = 'Please enter the recipe name.';
+                return;
+            } else {
+                document.getElementById('errorRecipeName').innerText = '';
+            }
+
+            //this will check if the link added is a valid image link
+            if (!formData.imageLink || !isValidURL(formData.imageLink)) {
+                document.getElementById('errorImageLink').innerText = 'Please enter a valid image link.';
+                return;
+            } else {
+                document.getElementById('errorImageLink').innerText = '';
+            }
+
+            if (!formData.recipeSteps) {
+                document.getElementById('errorRecipeSteps').innerText = 'Please enter the required steps.';
+                return;
+            } else {
+                document.getElementById('errorRecipeSteps').innerText = '';
+            }
+
+            if (!formData.recipeOverview) {
+                document.getElementById('errorRecipeOverview').innerText = 'Please enter the recipe overview.';
+                return;
+            } else {
+                document.getElementById('errorRecipeOverview').innerText = '';
+            }
+
+            // checks if this is an update form or a new form to be added to the page.
+            if (selectedIndex === -1) {
+                //this will add the data to the array
+                submittedData.push(formData);
+            } else {
+                // this will update the data
+                submittedData[selectedIndex] = formData;
+
+                // this will reset the index after updating the card.
+                selectedIndex = -1;
+            }
+
+            // this will clear the form after submitting
+            document.getElementById('recipeForm').reset();
+
+            // this will display the submitted data.
+            displayData();
+
+            // scroll to the top
+            document.getElementById('recipeForm').scrollIntoView({ behavior: 'smooth' });
+
+            // save to local storage
+            saveToLocalStorage();
+        }
+
+        function displayData() {
+            var displayContainer = document.getElementById('displayData');
+            displayContainer.innerHTML = '';
+
+            // Loop through the submitted data and create cards
+            submittedData.forEach(function(data, index) {
+                var displayCard = document.createElement('div');
+                displayCard.className = 'card col-md-5';
+                //this will help making a new card
+                displayCard.innerHTML = `
+                    <div class="card-header text-center">
+                        <h5>Submitted Data - ${index + 1}</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="${data.imageLink}" alt="Recipe Image" id="recipeImage" style="max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px;">
+                        <p><strong>Recipe Name:</strong> ${data.recipeName}</p>
+                        <p><strong>Steps Required:</strong> ${data.recipeSteps}</p>
+                        <p><strong>Recipe Overview:</strong> ${data.recipeOverview}</p>
+                        <button class="delete-button" onclick="deleteCard(${index})">Delete</button>
+                        <button class="update-button" onclick="updateCard(${index})">Update</button>
+                    </div>
+                `;
+
+                displayContainer.appendChild(displayCard);
+            });
+        }
+
+        //here is the isValidURL accepter, this will stop the user from uploading a wrong url that is not an image.
+        function isValidURL(url) {
+            var pattern = new RegExp('^(https?:\\/\\/)?'+ 
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
+                '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
+                '(\\?[;&a-z\\d%_.~+=-]*)?'+
+                '(\\#[-a-z\\d_]*)?$','i'); 
+
+            return !!pattern.test(url);
+        }
+
+        function deleteCard(index) {
+            submittedData.splice(index, 1);
+            displayData();
+            // update and save to local storsge
+            saveToLocalStorage();
+        }
+
+        function updateCard(index) {
+            var data = submittedData[index];
+            document.getElementById('recipeName').value = data.recipeName;
+            document.getElementById('imageLink').value = data.imageLink;
+            document.getElementById('recipeSteps').value = data.recipeSteps;
+            document.getElementById('recipeOverview').value = data.recipeOverview;
+
+            selectedIndex = index;
+
+            document.getElementById('recipeForm').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        displayData();
+    </script>
+    
+
+</body>
+</html>
