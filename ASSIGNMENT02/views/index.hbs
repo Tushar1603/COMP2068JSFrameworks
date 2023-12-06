@@ -1,148 +1,296 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Chef's </title>
-    <script src="recipeForm.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
 
-    .card {
-      transition: transform 0.3s ease-in-out;
-    }
+        .background-section {
+            background-color: #f0f0f0; 
+            padding: 20px;
+        }
 
-    .card:hover {
-      transform: scale(1.05);
-    }
-  </style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #54B4D3;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #54B4D3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #54B4D3;
+        }
+
+        #displayData {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #recipeImage {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #displayCard .card-body {
+            padding: 15px;
+        }
+
+        #displayCard p {
+            margin-bottom: 8px;
+        }
+
+        .error-message {
+            color: rgb(225, 71, 71);
+        }
+
+        .delete-button,
+        .update-button {
+            background-color: #54B4D3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        .delete-button:hover{
+            background-color: #c82333
+        }
+        .update-button:hover {
+            background-color: #2cb85f;
+        }
+    </style>
 </head>
-
 <body>
 
+    <div class="background-section">
+        <div class="container">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Recipe Form</h4>
+                </div>
 
-  <section class="hero bg-info text-white text-center py-5">
-    <div class="container">
-      <h1 class="display-4">Flavors Unveiled: A Culinary Odyssey</h1>
-      <p class="lead">
-        Discover and enjoy the taste of some of my favourite recipes.
-      </p>
-    </div>
-  </section>
+                {{!-- this is the form to take the data from the user --}}
+                <div class="card-body">
+                    <form id="recipeForm">
+                        <div class="form-group">
+                            <label for="recipeName">Recipe Name:</label>
+                            <input type="text" class="form-control" id="recipeName" name="recipeName" required>
+                            <small class="error-message" id="errorRecipeName"></small>
+                        </div>
 
-  <div class="container my-5">
-    <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <img src="https://fingersareforburning.com/wp-content/uploads/2018/08/20180717235437_IMG_0414-01-01.jpeg"
-            alt="Paneer Lababdaar" />
-          <div class="card-body">
-            <h5 class="card-title">Paneer Lababdaar</h5>
-            <p class="card-text">
-              Paneer Lababdaar, a luxurious North Indian delicacy, showcases
-              succulent paneer cubes bathed in a velvety tomato gravy. Infused
-              with aromatic spices, this dish captivates the palate with its
-              delightful and indulgent flavor profile.
-            </p>
-            <a href="./recipe1" class="btn btn-info">Learn More</a>
-          </div>
+                        <div class="form-group">
+                            <label for="imageLink">Image Link:</label>
+                            <input type="text" class="form-control" id="imageLink" name="imageLink" required>
+                            <small class="error-message" id="errorImageLink"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeSteps">Steps Required:</label>
+                            <textarea class="form-control" id="recipeSteps" name="recipeSteps" rows="4" required></textarea>
+                            <small class="error-message" id="errorRecipeSteps"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeOverview">Recipe Overview:</label>
+                            <textarea class="form-control" id="recipeOverview" name="recipeOverview" rows="4" required></textarea>
+                            <small class="error-message" id="errorRecipeOverview"></small>
+                        </div>
+
+                        <div class="text-center">
+                            {{!-- submitForm is a js item that is further used in this code --}}
+                            <button type="button" class="btn btn-info" onclick="submitForm()">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- this will display the submitted data on screen -->
+            <div id="displayData"></div>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <img src="https://www.whiskaffair.com/wp-content/uploads/2019/05/Paneer-Butter-Masala-2-1.jpg"
-            class="card-img-top" alt="Paneer Butter Masala" />
-          <div class="card-body">
-            <h5 class="card-title">Paneer Butter Masala</h5>
-            <p class="card-text">
-              Paneer Butter Masala is a classic North Indian dish that
-              delights the palate with its creamy tomato-based gravy. Tender
-              paneer cubes are enveloped in a rich blend of buttery, spiced
-              goodness, creating a comforting and flavorful culinary
-              experience.
-            </p>
-            <a href="./recipe2" class="btn btn-info">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <img src="https://i.pinimg.com/originals/bb/26/4c/bb264c9a5959ca5b492025ff05873850.jpg" class="card-img-top"
-            alt="Butter Chicken" />
-          <div class="card-body">
-            <h5 class="card-title">Butter Chicken</h5>
-            <p class="card-text">
-              A beloved Indian classic, butter chicken is tender chicken
-              dipped in a sumptuous mixture of rich tomato and butter sauce.
-              Its flavor profile is rich and decadent, with a symphony of
-              spices. This dish is a culinary marvel that is loved by all.
-            </p>
-            <a href="./recipe3" class="btn btn-info">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <img src="https://i.pinimg.com/736x/76/dd/b8/76ddb8d4f58472af4e27db441a27e423.jpg" class="card-img-top"
-            alt="Gajar Da Halwa" />
-          <div class="card-body">
-            <h5 class="card-title">Gajar Da Halwa</h5>
-            <p class="card-text">
-              A popular Indian dish called Gajar ka Halwa honours the idea of
-              grated carrots turned into a rich treat. This meal, which is
-              slow-cooked in ghee, milk, and sugar, is captivating due to its
-              rich, caramelized flavor and aromatic essence. This classic
-              treat, adorned with almonds, infuses sweetness and coziness into
-              every mouthful.
-            </p>
-            <a href="./recipe4" class="btn btn-info">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <img src="https://incredible.kitchen/wp-content/uploads/2020/11/img_8363-668x1024.jpg" class="card-img-top"
-            alt="Khoye di Pinni" />
-          <div class="card-body">
-            <h5 class="card-title">Khoye Di Pinni</h5>
-            <p class="card-text">
-              A delicious delicacy made from a mixture of whole wheat flour,
-              ghee, jaggery, and almonds, pinni is a classic Punjabi sweet.
-              These delicious, bite-sized sweets are slow-cooked to perfection
-              and provide a beautiful combination of earthy sweetness and
-              nutty richness, making them a beloved treat at festivals and
-              festivities.
-            </p>
-            <a href="./recipe5" class="btn btn-info">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2018/12/Sarson-Ka-saag-Recipe.jpg"
-            class="card-img-top" alt="Sarson ka Saag" />
-          <div class="card-body">
-            <h5 class="card-title">Sarson Da Saag</h5>
-            <p class="card-text">
-              The traditional Punjabi meal sarson da saag highlights the vivid
-              flavors of mustard greens. Cooked gently with spices and
-              frequently served with Makki di Roti, a flatbread made of
-              cornmeal, this dish captures the hearty spirit of rural Punjab.
-              This nutrient-dense, full-flavored meal is a beloved winter
-              treat that honors agricultural origins.
-            </p>
-            <a href="./recipe6" class="btn btn-info">Learn More</a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <br>
-  <br>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // this will load the submitted data
+        var submittedData = JSON.parse(localStorage.getItem('submittedData')) || [];
+        var selectedIndex = -1;
+
+        // saving data to local storage
+        function saveToLocalStorage() {
+            localStorage.setItem('submittedData', JSON.stringify(submittedData));
+        }
+
+        function submitForm() {
+            var formData = {
+                recipeName: document.getElementById('recipeName').value,
+                imageLink: document.getElementById('imageLink').value,
+                recipeSteps: document.getElementById('recipeSteps').value,
+                recipeOverview: document.getElementById('recipeOverview').value
+            };
+
+            //this will force the user to fill all the forms before moving on and further submitting the form without any data
+            if (!formData.recipeName) {
+                document.getElementById('errorRecipeName').innerText = 'Please enter the recipe name.';
+                return;
+            } else {
+                document.getElementById('errorRecipeName').innerText = '';
+            }
+
+            //this will check if the link added is a valid image link
+            if (!formData.imageLink || !isValidURL(formData.imageLink)) {
+                document.getElementById('errorImageLink').innerText = 'Please enter a valid image link.';
+                return;
+            } else {
+                document.getElementById('errorImageLink').innerText = '';
+            }
+
+            if (!formData.recipeSteps) {
+                document.getElementById('errorRecipeSteps').innerText = 'Please enter the required steps.';
+                return;
+            } else {
+                document.getElementById('errorRecipeSteps').innerText = '';
+            }
+
+            if (!formData.recipeOverview) {
+                document.getElementById('errorRecipeOverview').innerText = 'Please enter the recipe overview.';
+                return;
+            } else {
+                document.getElementById('errorRecipeOverview').innerText = '';
+            }
+
+            // checks if this is an update form or a new form to be added to the page.
+            if (selectedIndex === -1) {
+                //this will add the data to the array
+                submittedData.push(formData);
+            } else {
+                // this will update the data
+                submittedData[selectedIndex] = formData;
+
+                // this will reset the index after updating the card.
+                selectedIndex = -1;
+            }
+
+            // this will clear the form after submitting
+            document.getElementById('recipeForm').reset();
+
+            // this will display the submitted data.
+            displayData();
+
+            // scroll to the top
+            document.getElementById('recipeForm').scrollIntoView({ behavior: 'smooth' });
+
+            // save to local storage
+            saveToLocalStorage();
+        }
+
+        function displayData() {
+            var displayContainer = document.getElementById('displayData');
+            displayContainer.innerHTML = '';
+
+            // Loop through the submitted data and create cards
+            submittedData.forEach(function(data, index) {
+                var displayCard = document.createElement('div');
+                displayCard.className = 'card col-md-5';
+                //this will help making a new card
+                displayCard.innerHTML = `
+                    <div class="card-header text-center">
+                        <h5>Submitted Data - ${index + 1}</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="${data.imageLink}" alt="Recipe Image" id="recipeImage" style="max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px;">
+                        <p><strong>Recipe Name:</strong> ${data.recipeName}</p>
+                        <p><strong>Steps Required:</strong> ${data.recipeSteps}</p>
+                        <p><strong>Recipe Overview:</strong> ${data.recipeOverview}</p>
+                        <button class="delete-button" onclick="deleteCard(${index})">Delete</button>
+                        <button class="update-button" onclick="updateCard(${index})">Update</button>
+                    </div>
+                `;
+
+                displayContainer.appendChild(displayCard);
+            });
+        }
+
+        //here is the isValidURL accepter, this will stop the user from uploading a wrong url that is not an image.
+        function isValidURL(url) {
+            var pattern = new RegExp('^(https?:\\/\\/)?'+ 
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
+                '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
+                '(\\?[;&a-z\\d%_.~+=-]*)?'+
+                '(\\#[-a-z\\d_]*)?$','i'); 
+
+            return !!pattern.test(url);
+        }
+
+        function deleteCard(index) {
+            submittedData.splice(index, 1);
+            displayData();
+            // update and save to local storsge
+            saveToLocalStorage();
+        }
+
+        function updateCard(index) {
+            var data = submittedData[index];
+            document.getElementById('recipeName').value = data.recipeName;
+            document.getElementById('imageLink').value = data.imageLink;
+            document.getElementById('recipeSteps').value = data.recipeSteps;
+            document.getElementById('recipeOverview').value = data.recipeOverview;
+
+            selectedIndex = index;
+
+            document.getElementById('recipeForm').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        displayData();
+    </script>
+    
 
 </body>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </html>

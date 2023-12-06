@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        .container-page {
+            max-width: 500px;
+            margin: 50px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        p {
+            font-size: 18px;
+        }
+        label {
+            font-size: 16px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .btn-submit {
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    {{!-- this page will allow the user to choose a role they want to continue with --}}
+    <div class="container-page">
+        <h2 class="mb-4">Welcome to the User Page</h2>
+        <p class="mb-4">Please select your role:</p>
+
+        {{!-- a person can use only one role --}}
+        <form>
+            <div class="form-group">
+                <label for="role">Select your role:</label>
+                <select class="form-control" id="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            {{!-- submitRole is a funtion that i have used further in js to apply logic to the button --}}
+            <button type="button" class="btn btn-primary btn-submit" onclick="submitRole()">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        //here is the actual funtion
+        function submitRole() {
+            var selectedRole = document.getElementById("role").value;
+            alert("You selected: " + selectedRole);
+            window.location.href = "./index"; 
+        }
+    </script>
+
+</body>
+</html>
